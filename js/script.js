@@ -75,26 +75,28 @@ function nearBomb(square){
   if(square >= 0 && square < blockNum){
     if((square + 1 ) % 20 === 0){
       near =  countNear(countArrayRight , square);
-      console.log(near);
     }else if(square % 20 === 0){
       near =  countNear(countArrayLeft , square);
-      console.log(near);
     }
     else{
       near = countNear(countArrayCenter , square);
-      console.log(near);
     }
-    if(near === 0){
-      activeBlocks[square].style.color = "blue";
-    }else if (near > 0 && near < 3){
-      activeBlocks[square].style.color = "yellow";
-    }else if(near >= 3 && near < 5){
-      activeBlocks[square].style.color = "red";
-    }else{
-      activeBlocks[square].style.color = "purple";
-    }
-
     activeBlocks[square].innerHTML = near;
+    activeBlocks[square].style.color = nearColor(near);
+  }
+}
+
+//NUMBER COLOR
+
+function nearColor(x){
+  if(x === 0){
+    return "blue";
+  }else if (x > 0 && x < 3){
+    return "yellow";
+  }else if(x >= 3 &&  x < 5){
+    return "red";
+  }else{
+    return "purple";
   }
 }
 
@@ -145,7 +147,6 @@ function rightClick(square){
       let x = flagged.indexOf(square);
       flagged.splice(x);
     }
-
   }
 }
 
