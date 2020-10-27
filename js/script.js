@@ -76,7 +76,7 @@ var countArrayRight = [-1,-20,-21,20,19];
 //THIS FUNCTION DETERMINATE WITCH ARRAY WE ARE GONA USE FOR FIND NEAR BOMBS
 
 function nearBomb(square){
-  var near ;
+  var near = 0 ;
   if(square >= 0 && square < blockNum){
     if((square + 1 ) % 20 === 0){
       near =  countNear(countArrayRight , square);
@@ -112,7 +112,6 @@ function countNear(arr , init){
   var y = init;
   for(var i = 0 ; i<arr.length ; i++){
     var x = y + arr[i];
-    console.log('near ' + x);
     if(bombArray.includes(x)){
       count++;
     }
