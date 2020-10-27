@@ -20,9 +20,11 @@ var bomb = '<img src="resources/bomb-solid.svg" class="flag" alt="">'
 var bombSound = new Audio ('resources/Bomb.mp3');
 var victorySound = new Audio ('resources/fanfare.mp3');
 var shovelSound = new Audio ('resources/shovel.wav');
+var put = new Audio ('resources/put.wav');
 
-bombSound.volume = .3;
-shovelSound.volume = .4;
+bombSound.volume = 0.3;
+shovelSound.volume = 0.4;
+put.volume = 0.4
 
 //FIELD  GENERATOR
 
@@ -45,7 +47,7 @@ document.getElementById('buildbutton').addEventListener('click', function(){
   }
   //GENERATE BOMBS
   var level = document.getElementById('level').value;
-  generateBoombs(blockNum , level);
+  generateBombs(blockNum , level);
   activeBlocks = document.querySelectorAll('.square');
   flags = document.querySelectorAll('.flag')
   // PREVENT RIGHT CLICK DROPDOWN MENU
@@ -61,11 +63,49 @@ document.getElementById('buildbutton').addEventListener('click', function(){
 
 // FUNCTION FOR BOMB GENERATION
 
-function generateBoombs(block , level){
+function generateBombs(block , level){
   var num = (block / 100) * level;
   for(var i = 0 ; i < num.toFixed(0) ; i++){
     var bomb = Math.floor(Math.random() * block) ;
     bombArray.includes(bomb) ? i-- : bombArray.push(bomb);
+  }
+}
+
+//CHECK IF WE'VE CLICKED  A BOMB
+
+function check(square){
+  if(disabled.includes(square) === false && flagged.includes(square) === false){
+    shovelSound.play();
+    console.log(square);
+    if(bombArray.includes(square)){
+      setTimeout(function(){
+        activeBlocks[square].innerHTML = bomb;
+        bombSound.play();
+        showBombs();
+        document.getElementById('losebanner').style.display = "flex";
+      },300);
+    }else{
+      disabled.push(square);
+      nearBomb(square);
+      winCheck()
+    }
+  }
+}
+
+//THIS FUNCTION DETERMINATE WITCH ARRAY WE ARE GONA USE FOR FIND NEAR BOMBS
+
+function nearBomb(square){
+  var near = 0 ;
+  if(square >= 0 && square < blockNum){
+    if((square + 1 ) % 20 === 0){
+      near =  countNear(countArrayRight , square);
+    }else if(square % 20 === 0){
+      near =  countNear(countArrayLeft , square);
+    }else{
+      near = countNear(countArrayCenter , square);
+    }
+    activeBlocks[square].innerHTML = near;
+    activeBlocks[square].style.color = nearColor(near);
   }
 }
 
@@ -89,22 +129,6 @@ function countNear(arr , init){
   return count;
 }
 
-//THIS FUNCTION DETERMINATE WITCH ARRAY WE ARE GONA USE FOR FIND NEAR BOMBS
-
-function nearBomb(square){
-  var near = 0 ;
-  if(square >= 0 && square < blockNum){
-    if((square + 1 ) % 20 === 0){
-      near =  countNear(countArrayRight , square);
-    }else if(square % 20 === 0){
-      near =  countNear(countArrayLeft , square);
-    }else{
-      near = countNear(countArrayCenter , square);
-    }
-    activeBlocks[square].innerHTML = near;
-    activeBlocks[square].style.color = nearColor(near);
-  }
-}
 
 //NUMBER COLOR
 
@@ -121,26 +145,7 @@ function nearColor(x){
 }
 
 
-//CHECK IF WE'VE CLICKED  A BOMB
-
-function check(square){
-  if(disabled.includes(square) === false && flagged.includes(square) === false){
-    shovelSound.play();
-   console.log(square);
-   if(bombArray.includes(square)){
-     setTimeout(function(){
-       activeBlocks[square].innerHTML = bomb;
-       bombSound.play();
-       showBombs();
-       document.getElementById('losebanner').style.display = "flex";
-     },300);
-    }else{
-     disabled.push(square);
-     nearBomb(square);
-     winCheck()
-    }
-  }
-}
+//IN CASE OF BOMB PICK SHOW ALL BOMBS IN THE FIELD
 
 function showBombs(){
   for (i = 0; i < bombArray.length; i++){
@@ -153,18 +158,18 @@ function showBombs(){
 
 function rightClick(square){
   if(disabled.includes(square) === false){
-    console.log(activeBlocks[square])
+    put.play();
     flags[square].classList.toggle('hidden');
     if( flagged.includes(square) === false){
       flagged.push(square)
     }else{
-      let x = flagged.indexOf(square);
+      var x = flagged.indexOf(square);
       flagged.splice(x);
     }
   }
 }
 
-// CHECK IF WIN
+// CHECK IF COMPLETE
 
 function winCheck(){
   var sum = blockNum - bombArray.length;
