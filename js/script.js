@@ -26,6 +26,8 @@ shovelSound.volume = .4;
 
 document.getElementById('buildbutton').addEventListener('click', function(){
   bombArray = [];
+  disabled = [];
+  flagged = [];
   //WIN/LOSE BANNER ADD TO HTML
   field.innerHTML='<div id="losebanner"><h1>U LOSE</h1><button type="button" id="reset" name="button" onclick="location.reload()"  >again?!</button></div>';
   field.innerHTML += '<div id="winbanner" class="hidden"><h1>U WIN!!</h1><button type="button" id="again"  onclick="location.reload()"  name="button">Again?!</button></div>'
