@@ -19,6 +19,9 @@ var bombSound = new Audio ('resources/Bomb.mp3');
 var victorySound = new Audio ('resources/fanfare.mp3');
 var shovelSound = new Audio ('resources/shovel.wav');
 
+bombSound.volume = .3;
+shovelSound.volume = .4;
+
 //FIELD  GENERATOR
 
 document.getElementById('buildbutton').addEventListener('click', function(){
