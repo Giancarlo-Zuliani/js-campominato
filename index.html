@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
+    <link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&display=swap" rel="stylesheet">
     <meta charset="utf-8">
     <title>Campominato</title>
     <link rel="stylesheet" href="css/style.css">
@@ -13,7 +14,7 @@
     <form class="">
       <div class="">
 
-      <label for="select"> size: </label>
+      <label for="select"> SIZE : </label>
       <select class="" id="blocknumsel" name="squarenum">
         <option value="80">80</option>
         <option value="160">160</option>
@@ -23,7 +24,7 @@
     </div>
     <div class="">
 
-      <label for="select"> difficulty: </label>
+      <label for="select"> DIFFICULTY :</label>
       <select class="" id="level" name="">
         <option value="15">easy</option>
         <option value="30">medium</option>
@@ -32,8 +33,11 @@
       </select>
     </div>
     </form>
-
     <button type="button" id="buildbutton" name="button">avvia!</button>
+    <div class="hidden" id="infos">
+      <span id="bombsleft"></span>
+      <span id = "spaceleft"></span>
+    </div>
   </header>
 
   <main>

@@ -10,6 +10,10 @@ var bombSound = new Audio ('resources/Bomb.mp3');
 var reset;
 var victorySound = new Audio ('resources/fanfare.mp3');
 var shovelSound = new Audio ('resources/shovel.wav');
+var bombInside = document.getElementById('bombsleft');
+var spaceLeft = document.getElementById('spaceleft');
+var left = 0;
+
 
 document.getElementById('buildbutton').addEventListener('click', function(){
   bombArray = [];
@@ -31,6 +35,9 @@ document.getElementById('buildbutton').addEventListener('click', function(){
   for(i=0; i < activeBlocks.length ; i++){
     activeBlocks[i].addEventListener('contextmenu', event => event.preventDefault());
   }
+  document.getElementById('infos').classList.toggle('hidden');
+  bombInside.innerHTML = 'there are ' + bombArray.length + ' bombs in the field';
+  spaceLeft.innerHTML = (blockNum - bombArray.length) + ' space left';
 });
 
 
@@ -118,9 +125,12 @@ function rightClick(square){
   }
 }
 
+
 function winCheck(){
   var sum = blockNum - bombArray.length;
-  if(disabled.length === sum){
+  left++
+    spaceLeft.innerHTML = sum - left + 'space left';
+    if(disabled.length === sum){
     setTimeout(function(){
       document.getElementById('winbanner').style.display = "flex";
       victorySound.play();
