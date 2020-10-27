@@ -1,0 +1,64 @@
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding: 0;
+}
+
+main{
+width:80%;
+margin:auto;
+background-color: lightgreen;
+display: flex;
+flex-wrap: wrap;
+justify-content: center;
+align-items: center;
+padding: 5px;
+background-image: url('../resources/field.jpg');
+background-size: cover;
+}
+
+header{
+  margin:auto;
+  width:80%;
+  text-align: center;
+}
+#losebanner{
+  position:absolute;
+  left:50%;
+  top:50%;
+  transform: translate(-50%,-50%);
+  width:80%;
+  height:250px;
+  display: none;
+  text-align: center;
+}
+
+h1{
+  font-size: 80px;
+}
+.square{
+  width:5%;
+  height:50px;
+  border: rgba(160, 160, 255,.4) solid .5px;
+  background-color: transparent;
+  color:yellow;
+  font-size:1.5em;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.square:hover{
+  cursor: pointer;
+  background-color:aqua;
+}
+
+.hidden{
+  display: none;
+}
+
+img{
+  width:70%;
+  height:70%;
+}
