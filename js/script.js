@@ -8,14 +8,13 @@ var flagTag = '<img src="resources/flag.svg" class="flag hidden" alt="">'
 var bomb = '<img src="resources/bomb-solid.svg" class="flag" alt="">'
 var bombSound = new Audio ('resources/Bomb.mp3');
 var reset;
+var victorySound = new Audio ('resources/fanfare.mp3');
+var shovelSound = new Audio ('resources/shovel.wav');
 
 document.getElementById('buildbutton').addEventListener('click', function(){
   bombArray = [];
-  field.innerHTML='<div id="losebanner"><h1>U LOSE</h1><button type="button" id="reset" name="button">again?!</button></div>';
-  reset = document.getElementById('reset');
-  reset.addEventListener('click',function(){
-    location.reload();
-  });
+  field.innerHTML='<div id="losebanner"><h1>U LOSE</h1><button type="button" id="reset" name="button" onclick="location.reload()"  >again?!</button></div>';
+  field.innerHTML += '<div id="winbanner" class="hidden"><h1>U WIN!!</h1><button type="button" id="again"  onclick="location.reload()"  name="button">Again?!</button></div>'
   blockNum = document.getElementById('blocknumsel').value;
   for(var i = 0 ; i < blockNum ; i++){
     var child = document.createElement('div')
@@ -34,6 +33,10 @@ document.getElementById('buildbutton').addEventListener('click', function(){
   }
 });
 
+
+// function resetpage(){
+//   location.reload();
+// }
 
 function generateBoombs(block , level){
   var num = (block / 100) * level;
@@ -92,6 +95,7 @@ function nearBomb(square){
 
 function check(square){
   if(disabled.includes(square) === false){
+    shovelSound.play();
    console.log(square);
    if(bombArray.includes(square)){
      setTimeout(function(){
@@ -117,6 +121,9 @@ function rightClick(square){
 function winCheck(){
   var sum = blockNum - bombArray.length;
   if(disabled.length === sum){
-    console.log('hai vinto')
+    setTimeout(function(){
+      document.getElementById('winbanner').style.display = "flex";
+      victorySound.play();
+    },300)
   }
 }
