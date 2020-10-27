@@ -6,6 +6,7 @@ var activeBlocks ;
 var blockNum;
 var disabled = [];
 var flags;
+flagged = [];
 var reset;
 var left = 0;
 var bombInside = document.getElementById('bombsleft');
@@ -115,7 +116,7 @@ function countNear(arr , init){
 //CHECK IF WE'VE CLICKED  A BOMB
 
 function check(square){
-  if(disabled.includes(square) === false){
+  if(disabled.includes(square) === false && flagged.includes(square) === false){
     shovelSound.play();
    console.log(square);
    if(bombArray.includes(square)){
@@ -138,6 +139,13 @@ function rightClick(square){
   if(disabled.includes(square) === false){
     console.log(activeBlocks[square])
     flags[square].classList.toggle('hidden');
+    if( flagged.includes(square) === false){
+      flagged.push(square)
+    }else{
+      let x = flagged.indexOf(square);
+      flagged.splice(x);
+    }
+
   }
 }
 
