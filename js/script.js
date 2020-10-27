@@ -22,9 +22,9 @@ var victorySound = new Audio ('resources/fanfare.mp3');
 var shovelSound = new Audio ('resources/shovel.wav');
 var put = new Audio ('resources/put.wav');
 
-bombSound.volume = 0.3;
-shovelSound.volume = 0.4;
-put.volume = 0.4
+bombSound.volume = 0.03;
+shovelSound.volume = 0.1;
+put.volume = 0.4;
 
 //FIELD  GENERATOR
 
@@ -76,7 +76,6 @@ function generateBombs(block , level){
 function check(square){
   if(disabled.includes(square) === false && flagged.includes(square) === false){
     shovelSound.play();
-    console.log(square);
     if(bombArray.includes(square)){
       setTimeout(function(){
         activeBlocks[square].innerHTML = bomb;
