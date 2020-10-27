@@ -137,7 +137,7 @@ function nearColor(x){
   }else if (x > 0 && x < 3){
     return "yellow";
   }else if(x >= 3 &&  x < 5){
-    return "red";
+    return "crimson";
   }else{
     return "purple";
   }

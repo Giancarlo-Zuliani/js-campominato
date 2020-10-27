@@ -39,6 +39,7 @@ header select{
   padding: 5px 30px;
   border-color: black;
   font-size: 16px;
+  border:none;
 }
 
 label{
@@ -48,8 +49,9 @@ label{
 header button{
   padding:5px 25px;
   margin-top: 25px;
-  background-color: lightgreen;
+  background-color: #4B5320;
   border-radius: 15px;
+  border:none;
 }
 
 /* POP UP BANNER */
@@ -87,9 +89,10 @@ header button{
 
 #losebanner button , #winbanner button{
   padding: 5px 25px;
-  background-color: lightgreen;
+  background-color: #4B5320;
   border-radius: 15px;
   opacity: 1;
+  border:none;
 }
 
 /* MAIN GAME FIELD */
