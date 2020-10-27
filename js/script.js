@@ -10,7 +10,7 @@ var reset;
 var left = 0;
 var bombInside = document.getElementById('bombsleft');
 var spaceLeft = document.getElementById('spaceleft');
-// IMMAGES
+// IMAGES
 var flagTag = '<img src="resources/flag.svg" class="flag hidden" alt="">'
 var bomb = '<img src="resources/bomb-solid.svg" class="flag" alt="">'
 // SOUND

@@ -24,7 +24,7 @@ header{
 form , #infos{
   display: flex;
   width:50%;
-  margin:auto;
+  margin:20px auto;
   justify-content:space-around;
 }
 
