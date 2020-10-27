@@ -2,18 +2,20 @@
 // GLOBAL VARIABLES
 var bombArray=[];
 var field = document.querySelector('main');
-var activeBlocks ;
+var activeBlocks;
 var blockNum;
 var disabled = [];
 var flags;
-flagged = [];
+var flagged = [];
 var reset;
 var left = 0;
 var bombInside = document.getElementById('bombsleft');
 var spaceLeft = document.getElementById('spaceleft');
+
 // IMAGES
 var flagTag = '<img src="resources/flag.svg" class="flag hidden" alt="">'
 var bomb = '<img src="resources/bomb-solid.svg" class="flag" alt="">'
+
 // SOUND
 var bombSound = new Audio ('resources/Bomb.mp3');
 var victorySound = new Audio ('resources/fanfare.mp3');
@@ -73,6 +75,20 @@ var countArrayCenter = [1,20,21,19,-20,-21,-19,-1];
 var countArrayLeft = [1,20,21,-20,-19];
 var countArrayRight = [-1,-20,-21,20,19];
 
+//FUNCTION FOR COUNT HOW MANY BOMBS THERE ARE NEAR
+
+function countNear(arr , init){
+  var count = 0;
+  var y = init;
+  for(var i = 0 ; i<arr.length ; i++){
+    var x = y + arr[i];
+    if(bombArray.includes(x)){
+      count++;
+    }
+  }
+  return count;
+}
+
 //THIS FUNCTION DETERMINATE WITCH ARRAY WE ARE GONA USE FOR FIND NEAR BOMBS
 
 function nearBomb(square){
@@ -82,8 +98,7 @@ function nearBomb(square){
       near =  countNear(countArrayRight , square);
     }else if(square % 20 === 0){
       near =  countNear(countArrayLeft , square);
-    }
-    else{
+    }else{
       near = countNear(countArrayCenter , square);
     }
     activeBlocks[square].innerHTML = near;
@@ -105,19 +120,6 @@ function nearColor(x){
   }
 }
 
-//FUNCTION FOR COUNT HOW MANY BOMBS THERE ARE NEAR
-
-function countNear(arr , init){
-  var count = 0;
-  var y = init;
-  for(var i = 0 ; i<arr.length ; i++){
-    var x = y + arr[i];
-    if(bombArray.includes(x)){
-      count++;
-    }
-  }
-  return count;
-}
 
 //CHECK IF WE'VE CLICKED  A BOMB
 
@@ -131,12 +133,12 @@ function check(square){
        bombSound.play();
        showBombs();
        document.getElementById('losebanner').style.display = "flex";
-   },300);
-   }else{
+     },300);
+    }else{
      disabled.push(square);
      nearBomb(square);
      winCheck()
-   }
+    }
   }
 }
 
