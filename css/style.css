@@ -1,3 +1,5 @@
+  /* GENERAL RULES */
+
 *{
   box-sizing:border-box;
   margin:0;
@@ -10,19 +12,7 @@ body{
   background-size: cover;
 }
 
-main{
-width:80%;
-margin:auto;
-background-color: lightgreen;
-display: flex;
-flex-wrap: wrap;
-justify-content: center;
-align-items: center;
-background-image: url('../resources/field.jpg');
-background-size: cover;
-position: relative;
-margin-bottom: 50px;
-}
+/* HEADER */
 
 header{
   margin:auto;
@@ -43,13 +33,13 @@ form , #infos{
 }
 
 header select{
-margin:auto;
-background-color: #4B5320;
-border-radius: 5px;
-text-align: center;
-padding: 5px 30px;
-border-color: black;
-font-size: 16px;
+  margin:auto;
+  background-color: #4B5320;
+  border-radius: 5px;
+  text-align: center;
+  padding: 5px 30px;
+  border-color: black;
+  font-size: 16px;
 }
 
 label{
@@ -62,6 +52,8 @@ header button{
   background-color: lightgreen;
   border-radius: 15px;
 }
+
+/* POP UP BANNER */
 
 #losebanner{
   position:absolute;
@@ -101,6 +93,21 @@ header button{
   opacity: 1;
 }
 
+/* MAIN GAME FIELD */
+
+main{
+  width:80%;
+  margin:auto;
+  background-color: lightgreen;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  background-image: url('../resources/field.jpg');
+  background-size: cover;
+  position: relative;
+  margin-bottom: 50px;
+}
 
 h1{
   font-size: 80px;
@@ -137,4 +144,9 @@ header h1{
 img{
   width:70%;
   height:70%;
+}
+
+button:hover{
+  cursor:pointer;
+  text-decoration: underline;
 }

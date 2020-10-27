@@ -7,43 +7,48 @@
     <link rel="stylesheet" href="css/style.css">
   </head>
   <body>
+
+    <!-- HEADER -->
+
     <header>
+      <h1>Mine-field</h1>
+      <form class="">
 
-    <h1>Mine-field</h1>
+        <div class="">
+          <label for="select"> SIZE : </label>
+          <select class="" id="blocknumsel" name="squarenum">
+            <option value="80">80</option>
+            <option value="160">160</option>
+            <option value="240">240</option>
+            <option value="320">320</option>
+          </select>
+        </div>
 
-    <form class="">
-      <div class="">
+        <div class="">
+          <label for="select"> DIFFICULTY :</label>
+          <select class="" id="level" name="">
+            <option value="15">easy</option>
+            <option value="30">medium</option>
+            <option value="50">hard</option>
+            <option value="70">hell</option>
+          </select>
+        </div>
+      </form>
 
-      <label for="select"> SIZE : </label>
-      <select class="" id="blocknumsel" name="squarenum">
-        <option value="80">80</option>
-        <option value="160">160</option>
-        <option value="240">240</option>
-        <option value="320">320</option>
-      </select>
-    </div>
-    <div class="">
+      <button type="button" id="buildbutton" name="button">avvia!</button>
+      <div class="hidden" id="infos">
+        <span id="bombsleft"></span>
+        <span id = "spaceleft"></span>
+      </div>
+    </header>
 
-      <label for="select"> DIFFICULTY :</label>
-      <select class="" id="level" name="">
-        <option value="15">easy</option>
-        <option value="30">medium</option>
-        <option value="50">hard</option>
-        <option value="70">hell</option>
-      </select>
-    </div>
-    </form>
-    <button type="button" id="buildbutton" name="button">avvia!</button>
-    <div class="hidden" id="infos">
-      <span id="bombsleft"></span>
-      <span id = "spaceleft"></span>
-    </div>
-  </header>
+    <!-- MAIN -->
 
   <main>
 
   </main>
 
+  <!-- SCRIPT -->
 
   <script src="js\script.js" charset="utf-8"></script>
   </body>
