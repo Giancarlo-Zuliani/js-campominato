@@ -128,6 +128,7 @@ function check(square){
      setTimeout(function(){
        activeBlocks[square].innerHTML = bomb;
        bombSound.play();
+       showBombs();
        document.getElementById('losebanner').style.display = "flex";
    },300);
    }else{
@@ -135,6 +136,13 @@ function check(square){
      nearBomb(square);
      winCheck()
    }
+  }
+}
+
+function showBombs(){
+  for (i = 0; i < bombArray.length; i++){
+    var x = bombArray[i];
+    activeBlocks[x].innerHTML = bomb;
   }
 }
 
