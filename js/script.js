@@ -7,11 +7,15 @@ var flags;
 var flagTag = '<img src="resources/flag.svg" class="flag hidden" alt="">'
 var bomb = '<img src="resources/bomb-solid.svg" class="flag" alt="">'
 var bombSound = new Audio ('resources/Bomb.mp3');
-var reset = document.getElementById('reset');
+var reset;
 
 document.getElementById('buildbutton').addEventListener('click', function(){
   bombArray = [];
-  field.innerHTML="";
+  field.innerHTML='<div id="losebanner"><h1>U LOSE</h1><button type="button" id="reset" name="button">again?!</button></div>';
+  reset = document.getElementById('reset');
+  reset.addEventListener('click',function(){
+    location.reload();
+  });
   blockNum = document.getElementById('blocknumsel').value;
   for(var i = 0 ; i < blockNum ; i++){
     var child = document.createElement('div')
@@ -93,7 +97,7 @@ function check(square){
      setTimeout(function(){
        activeBlocks[square].innerHTML = bomb;
        bombSound.play();
-       document.getElementById('losebanner').style.display = "block";
+       document.getElementById('losebanner').style.display = "flex";
    },300);
    }else{
      disabled.push(square);
@@ -116,7 +120,3 @@ function winCheck(){
     console.log('hai vinto')
   }
 }
-
-reset.addEventListener('click',function(){
-  location.reload();
-});
