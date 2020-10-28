@@ -173,7 +173,7 @@ function rightClick(square){
       flagged.push(square);
     }else{
       var x = flagged.indexOf(square);
-      flagged.splice(x);
+      flagged.splice(x,1);
     }
   }
 }
