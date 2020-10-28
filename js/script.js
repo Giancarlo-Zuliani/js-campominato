@@ -130,7 +130,7 @@ function countNear(arr , init){
   if(count === 0){
     for(var i = 0 ; i<arr.length ; i++ ){
       var x = y + arr[i];
-      if (x > 0 && x < blockNum){
+      if (x >= 0 && x < blockNum){
         check(x);
       }
     }
