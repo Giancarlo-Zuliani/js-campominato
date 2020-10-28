@@ -73,6 +73,7 @@ header button{
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  z-index: 5;
 }
 
 #winbanner{
@@ -89,6 +90,7 @@ header button{
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  z-index: 5;
 }
 
 #losebanner button , #winbanner button{
@@ -162,4 +164,9 @@ button:hover{
   width:20px;
   height: 1px;
   border:none;
+}
+
+.layover{
+  background-color: black;
+  opacity: .5;
 }

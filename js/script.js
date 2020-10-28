@@ -90,6 +90,7 @@ function check(square){
     }else{
       disabled.push(square);
       nearBomb(square);
+      activeBlocks[square].classList.add('layover');
       winCheck();
     }
   }
@@ -107,7 +108,7 @@ function nearBomb(square){
     }else{
       near = countNear(countArrayCenter , square);
     }
-    activeBlocks[square].innerHTML = near;
+    activeBlocks[square].innerHTML = '<span>' + near + '</span>';
     activeBlocks[square].style.color = nearColor(near);
   }
 }
