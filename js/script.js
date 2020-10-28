@@ -127,6 +127,14 @@ function countNear(arr , init){
       count++;
     }
   }
+  if(count === 0){
+    for(var i = 0 ; i<arr.length ; i++ ){
+      var x = y + arr[i];
+      if (x > 0 && x < blockNum){
+        check(x);
+      }
+    }
+  }
   return count;
 }
 
