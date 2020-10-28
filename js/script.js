@@ -21,10 +21,12 @@ var bombSound = new Audio ('resources/Bomb.mp3');
 var victorySound = new Audio ('resources/fanfare.mp3');
 var shovelSound = new Audio ('resources/shovel.wav');
 var put = new Audio ('resources/put.wav');
+var discover = new Audio ('resources/positive.mp3');
 
 bombSound.volume = 0.05;
 shovelSound.volume = 0.15;
 put.volume = 0.4;
+discover.volume = 0.3;
 
 //FIELD  GENERATOR
 
@@ -128,6 +130,7 @@ function countNear(arr , init){
     }
   }
   if(count === 0){
+    discover.play();
     for(var i = 0 ; i<arr.length ; i++ ){
       var x = y + arr[i];
       if (x >= 0 && x < blockNum){

@@ -11,6 +11,7 @@ body{
   background-image: url('../resources/bg.jpg');
   background-repeat: no-repeat;
   background-size:cover;
+  min-height: 100vh;
 }
 
 /* HEADER */
@@ -42,7 +43,7 @@ header select{
   border-color: black;
   font-size: 16px;
   border:none;
-  width:150px;
+  width:200px;
 }
 
 label{
