@@ -23,10 +23,10 @@ var shovelSound = new Audio ('resources/shovel.wav');
 var put = new Audio ('resources/put.wav');
 var discover = new Audio ('resources/positive.mp3');
 
-bombSound.volume = 0.05;
-shovelSound.volume = 0.15;
-put.volume = 0.4;
-discover.volume = 0.3;
+bombSound.volume = 0.1;
+shovelSound.volume = 0.5;
+put.volume = 1;
+discover.volume = 0.5;
 
 //FIELD  GENERATOR
 
