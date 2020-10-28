@@ -22,8 +22,8 @@ var victorySound = new Audio ('resources/fanfare.mp3');
 var shovelSound = new Audio ('resources/shovel.wav');
 var put = new Audio ('resources/put.wav');
 
-bombSound.volume = 0.03;
-shovelSound.volume = 0.1;
+bombSound.volume = 0.05;
+shovelSound.volume = 0.15;
 put.volume = 0.4;
 
 //FIELD  GENERATOR
@@ -35,6 +35,8 @@ document.getElementById('buildbutton').addEventListener('click', function(){
   //WIN/LOSE BANNER ADD TO HTML
   field.innerHTML='<div id="losebanner"><h1>U LOSE</h1><button type="button" id="reset" name="button" onclick="location.reload()"  >again?!</button></div>';
   field.innerHTML += '<div id="winbanner" class="hidden"><h1>U WIN!!</h1><button type="button" id="again"  onclick="location.reload()"  name="button">Again?!</button></div>'
+  field.style.border = "solid #4B5320 8px"
+  field.style.borderRadius = "7px";
   //GENERATE BLOCKS
   blockNum = document.getElementById('blocknumsel').value;
   for(var i = 0 ; i < blockNum ; i++){
