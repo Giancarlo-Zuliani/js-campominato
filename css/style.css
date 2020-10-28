@@ -152,3 +152,10 @@ button:hover{
   cursor:pointer;
   text-decoration: underline;
 }
+
+#cheat {
+  background-color: green;
+  width:20px;
+  height: 1px;
+  border:none;
+}

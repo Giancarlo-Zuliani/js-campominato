@@ -34,7 +34,7 @@ document.getElementById('buildbutton').addEventListener('click', function(){
   flagged = [];
   //WIN/LOSE BANNER ADD TO HTML
   field.innerHTML='<div id="losebanner"><h1>U LOSE</h1><button type="button" id="reset" name="button" onclick="location.reload()"  >again?!</button></div>';
-  field.innerHTML += '<div id="winbanner" class="hidden"><h1>U WIN!!</h1><button type="button" id="again"  onclick="location.reload()"  name="button">Again?!</button></div>';
+  field.innerHTML += '<div id="winbanner" class="hidden"><h1>WINNER WINNER CHICKEN DINNER</h1><button type="button" id="again"  onclick="location.reload()"  name="button">Again?!</button></div>';
   field.style.border = "solid #4B5320 8px";
   field.style.borderRadius = "7px";
   //GENERATE BLOCKS
@@ -181,5 +181,13 @@ function winCheck(){
       document.getElementById('winbanner').style.display = "flex";
       victorySound.play();
     },300);
+  }
+}
+
+//cheat function
+
+function cheat(){
+  for(i=0; i <= blockNum; i++){
+    check(i);
   }
 }
