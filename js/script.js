@@ -13,8 +13,8 @@ var bombInside = document.getElementById('bombsleft');
 var spaceLeft = document.getElementById('spaceleft');
 
 // IMAGES
-var flagTag = '<img src="resources/flag.svg" class="flag hidden" alt="">'
-var bomb = '<img src="resources/bomb-solid.svg" class="flag" alt="">'
+var flagTag = '<img src="resources/flag.svg" class="flag hidden" alt="">';
+var bomb = '<img src="resources/bomb-solid.svg" class="flag" alt="">';
 
 // SOUND
 var bombSound = new Audio ('resources/Bomb.mp3');
@@ -34,13 +34,13 @@ document.getElementById('buildbutton').addEventListener('click', function(){
   flagged = [];
   //WIN/LOSE BANNER ADD TO HTML
   field.innerHTML='<div id="losebanner"><h1>U LOSE</h1><button type="button" id="reset" name="button" onclick="location.reload()"  >again?!</button></div>';
-  field.innerHTML += '<div id="winbanner" class="hidden"><h1>U WIN!!</h1><button type="button" id="again"  onclick="location.reload()"  name="button">Again?!</button></div>'
-  field.style.border = "solid #4B5320 8px"
+  field.innerHTML += '<div id="winbanner" class="hidden"><h1>U WIN!!</h1><button type="button" id="again"  onclick="location.reload()"  name="button">Again?!</button></div>';
+  field.style.border = "solid #4B5320 8px";
   field.style.borderRadius = "7px";
   //GENERATE BLOCKS
   blockNum = document.getElementById('blocknumsel').value;
   for(var i = 0 ; i < blockNum ; i++){
-    var child = document.createElement('div')
+    var child = document.createElement('div');
     child.setAttribute("oncontextmenu" , 'rightClick('+ i +')');
     child.setAttribute("onclick" , 'check(' + i +')');
     child.setAttribute("class" , "square");
@@ -51,7 +51,7 @@ document.getElementById('buildbutton').addEventListener('click', function(){
   var level = document.getElementById('level').value;
   generateBombs(blockNum , level);
   activeBlocks = document.querySelectorAll('.square');
-  flags = document.querySelectorAll('.flag')
+  flags = document.querySelectorAll('.flag');
   // PREVENT RIGHT CLICK DROPDOWN MENU
   for(i=0; i < activeBlocks.length ; i++){
     activeBlocks[i].addEventListener('contextmenu', event => event.preventDefault());
@@ -88,7 +88,7 @@ function check(square){
     }else{
       disabled.push(square);
       nearBomb(square);
-      winCheck()
+      winCheck();
     }
   }
 }
@@ -162,7 +162,7 @@ function rightClick(square){
     put.play();
     flags[square].classList.toggle('hidden');
     if( flagged.includes(square) === false){
-      flagged.push(square)
+      flagged.push(square);
     }else{
       var x = flagged.indexOf(square);
       flagged.splice(x);
@@ -174,12 +174,12 @@ function rightClick(square){
 
 function winCheck(){
   var sum = blockNum - bombArray.length;
-  left++
+  left++;
     spaceLeft.innerHTML = sum - left + 'space left';
     if(disabled.length === sum){
     setTimeout(function(){
       document.getElementById('winbanner').style.display = "flex";
       victorySound.play();
-    },300)
+    },300);
   }
 }
