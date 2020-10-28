@@ -192,10 +192,19 @@ function winCheck(){
   }
 }
 
-//cheat function
+//CHEAT 
 
 function cheat(){
   for(i=0; i <= blockNum; i++){
     check(i);
+  }
+}
+
+//KEYBINDING CHEAT CODE
+
+document.onkeyup = function (e) {
+  var evt = window.event || e;
+  if (evt.keyCode == 67 && evt.ctrlKey) {
+    cheat();
   }
 }
