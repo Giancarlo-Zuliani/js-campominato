@@ -22,7 +22,7 @@ header{
 
 form , #infos{
   display: flex;
-  width:50%;
+  width:60%;
   margin:20px auto;
   justify-content:space-around;
 }
@@ -40,6 +40,7 @@ header select{
   border-color: black;
   font-size: 16px;
   border:none;
+  width:150px;
 }
 
 label{
