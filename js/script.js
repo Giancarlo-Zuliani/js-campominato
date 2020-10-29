@@ -45,7 +45,7 @@ document.getElementById('buildbutton').addEventListener('click', function(){
     var child = document.createElement('div');
     child.setAttribute("oncontextmenu" , 'rightClick('+ i +')');
     child.setAttribute("onclick" , 'check(' + i +')');
-    child.setAttribute("class" , "square");
+    child.setAttribute("class" , "square" , "customcur");
     child.innerHTML = flagTag;
     field.appendChild(child);
   }

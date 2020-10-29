@@ -141,8 +141,8 @@ header h1{
 }
 
 .square:hover{
-  cursor: pointer;
   background-color:aqua;
+  cursor:url(../resources/ss.cur) , pointer;
 }
 
 .hidden{
@@ -159,12 +159,6 @@ button:hover{
   text-decoration: underline;
 }
 
-#cheat {
-  background-color: green;
-  width:20px;
-  height: 1px;
-  border:none;
-}
 
 .layover{
   background-color: black;
