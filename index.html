@@ -1,12 +1,63 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
+    <link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&display=swap" rel="stylesheet">
     <meta charset="utf-8">
-    <title></title>
+    <link rel="icon" href="resources/explosion.svg">
+    <title>Mine-Field</title>
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <link rel="stylesheet" href="css/style.css">
   </head>
   <body>
 
+    <!-- HEADER -->
 
-    <script src="script.js" charset="utf-8"></script>
+    <header>
+      <h1>Mine-field</h1>
+      <a class="github-button" href="https://github.com/Giancarlo-Zuliani" data-color-scheme="no-preference: dark; light: dark; dark: dark;" data-size="large" data-show-count="true" aria-label="Follow @Giancarlo-Zuliani on GitHub">Follow @Giancarlo-Zuliani</a>
+      <form class="">
+
+        <div class="">
+          <label for="select"> SIZE : </label>
+          <select class="" id="blocknumsel" name="squarenum">
+            <option value="80">80</option>
+            <option value="160">160</option>
+            <option value="240">240</option>
+            <option value="320">320</option>
+            <option value="400">400</option>
+            <option value="560">560</option>
+            <option value="720">720</option>
+          </select>
+        </div>
+
+        <div class="">
+          <label for="select"> DIFFICULTY :</label>
+          <select class="" id="level" name="">
+            <option value="10">Very easy</option>
+            <option value="15">Easy</option>
+            <option value="25">Medium</option>
+            <option value="35">Hard</option>
+            <option value="45">Very hard</option>
+            <option value="60">HELL</option>
+          </select>
+        </div>
+      </form>
+
+      <button type="button" id="buildbutton" name="button">avvia!</button>
+      <div class="hidden" id="infos">
+        <span id="bombsleft"></span>
+        <span id = "spaceleft"></span>
+      </div>
+    </header>
+
+    <!-- MAIN -->
+
+  <main>
+
+  </main>
+
+
+  <!-- SCRIPT -->
+  <script src="js\script.js" charset="utf-8"></script>
   </body>
 </html>
