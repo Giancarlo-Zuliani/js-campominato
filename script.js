@@ -1,0 +1,40 @@
+
+var bombsArray=[];
+var pickedNums=[]
+var end = false;
+var bombsNum = 1;
+var size = 100;
+
+function generateBombs(n , max){
+  for(i=0; i < n ; i++){
+    var bomb = Math.floor(Math.random() * max)+1;
+    bombsArray.includes(bomb) ? i-- : bombsArray.push(bomb);
+  }
+  console.log(bombsArray);
+}
+
+generateBombs(bombsNum,size);
+
+while(end === false){
+  var userPick= parseInt(prompt('inserisci un numero'));
+  if (userPick <= 100 && userPick > 0 && isNaN(userPick)=== false){
+    if(pickedNums.includes(userPick)=== false){
+      if(bombsArray.includes(userPick)){
+        alert('Hai perso,hai totalizzato ' + pickedNums.length + ' punti');
+        end = true;
+      }
+      else{
+        pickedNums.push(userPick)
+        console.log(pickedNums)
+        if (pickedNums.length === (size - bombsNum)){
+          alert('hai vinto');
+          end = true;
+        }
+      }
+    }else{
+      alert('numero gia inserito');
+    }
+  }else{
+    alert('inserisci un numero da 1 a 100');
+  }
+};
