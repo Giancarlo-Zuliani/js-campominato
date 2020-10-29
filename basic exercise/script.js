@@ -1,8 +1,8 @@
 
 var bombsArray=[];
-var pickedNums=[]
+var pickedNums=[];
 var end = false;
-var bombsNum = 1;
+var bombsNum = 16;
 var size = 100;
 
 function generateBombs(n , max){
