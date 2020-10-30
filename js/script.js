@@ -7,7 +7,6 @@ var blockNum;
 var disabled = [];
 var flags;
 var flagged = [];
-var reset;
 var left = 0;
 var bombInside = document.getElementById('bombsleft');
 var spaceLeft = document.getElementById('spaceleft');
@@ -187,7 +186,7 @@ function rightClick(square){
 function winCheck(){
   var sum = blockNum - bombArray.length;
   left++;
-    spaceLeft.innerHTML = sum - left + 'space left';
+    spaceLeft.innerHTML = sum - left + ' space left';
     if(disabled.length === sum){
     setTimeout(function(){
       document.getElementById('winbanner').style.display = "flex";
