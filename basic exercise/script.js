@@ -19,7 +19,7 @@ function game(){
   while(end === false){
     var userPick= parseInt(prompt('inserisci un numero'));
     if (userPick <= 100 && userPick > 0 && isNaN(userPick)=== false){
-      if(pickedNums.includes(userPick)=== false){
+      if(pickedNums.includes(userPick) === false){
         if(bombsArray.includes(userPick)){
           alert('Hai perso,hai totalizzato ' + pickedNums.length + ' punti');
           end = true;
